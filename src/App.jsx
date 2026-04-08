@@ -815,6 +815,100 @@ function SlideBitcoin() {
   )
 }
 
+// ─── SLIDE 6.5: VARIEDAD DE CRIPTOS ──────────────────────────
+function SlideCryptoVariety() {
+  const cryptos = [
+    {
+      Icon: Coins,
+      color: T.orange,
+      name: 'Bitcoin',
+      ticker: 'BTC',
+      tagline: 'Oro digital',
+      what: 'La primera criptomoneda. Reserva de valor escasa — solo habrá 21 millones, para siempre.',
+      use: 'Ahorrar valor fuera del sistema bancario tradicional.',
+    },
+    {
+      Icon: Zap,
+      color: T.teal,
+      name: 'Ethereum',
+      ticker: 'ETH',
+      tagline: 'Computadora mundial',
+      what: 'Plataforma programable. Ejecuta smart contracts y aplicaciones descentralizadas (dApps).',
+      use: 'DeFi, NFTs, tokens, finanzas sin intermediarios.',
+    },
+    {
+      Icon: Landmark,
+      color: T.green,
+      name: 'Stablecoins',
+      ticker: 'USDT · USDC',
+      tagline: 'Dólar digital',
+      what: 'Criptos atadas 1:1 al dólar estadounidense. Sin volatilidad — 1 USDT = 1 USD.',
+      use: 'Ahorrar en dólares sin banco, mandar USD al exterior al instante.',
+    },
+  ]
+
+  return (
+    <Slide>
+      <motion.div custom={0} variants={fadeUp} initial="hidden" animate="show" style={{ marginBottom: 10 }}>
+        <Tag>El ecosistema</Tag>
+      </motion.div>
+      <motion.h2 custom={.06} variants={fadeUp} initial="hidden" animate="show"
+        style={{ fontFamily: T.D, fontSize: 'clamp(34px,4.8vw,60px)', fontWeight: 800, color: T.text, marginBottom: 8, lineHeight: 1.05 }}
+      >¿<span style={{ color: T.teal }}>Solo</span> existe Bitcoin?</motion.h2>
+      <motion.p custom={.12} variants={fadeUp} initial="hidden" animate="show"
+        style={{ color: T.muted, fontSize: 19, fontFamily: T.B, marginBottom: 28 }}
+      >Spoiler: no. Hay miles. Pero <strong style={{ color: T.text }}>3 categorías</strong> te explican el 95% del ecosistema.</motion.p>
+
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20, marginBottom: 24 }}>
+        {cryptos.map(({ Icon, color, name, ticker, tagline, what, use }, i) => (
+          <motion.div key={i} custom={.2 + i * .1} variants={fadeUp} initial="hidden" animate="show"
+            whileHover={{ scale: 1.02, y: -4 }}
+          >
+            <Card style={{ height: '100%', border: `1px solid ${color}40`, background: `${color}08`, display: 'flex', flexDirection: 'column', gap: 0 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 18, paddingBottom: 16, borderBottom: `1px solid rgba(255,255,255,0.07)` }}>
+                <div style={{
+                  width: 56, height: 56, borderRadius: 14,
+                  background: `${color}18`, border: `1px solid ${color}50`,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                }}>
+                  <Icon size={30} color={color} strokeWidth={1.5} />
+                </div>
+                <div>
+                  <div style={{ fontFamily: T.D, fontWeight: 800, fontSize: 22, color: T.text, lineHeight: 1.1 }}>{name}</div>
+                  <div style={{ fontFamily: T.M, fontSize: 11, color, letterSpacing: '.1em', marginTop: 3 }}>{ticker}</div>
+                </div>
+              </div>
+              <div style={{ fontFamily: T.B, fontSize: 14, color, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 10 }}>
+                "{tagline}"
+              </div>
+              <div style={{ fontFamily: T.B, fontSize: 15, color: T.text, lineHeight: 1.55, marginBottom: 14 }}>
+                {what}
+              </div>
+              <div style={{
+                marginTop: 'auto', paddingTop: 14, borderTop: `1px solid rgba(255,255,255,0.07)`,
+                fontFamily: T.B, fontSize: 13, color: T.muted, lineHeight: 1.5,
+              }}>
+                <span style={{ color: T.muted, fontFamily: T.M, fontSize: 10, textTransform: 'uppercase', letterSpacing: '.08em', display: 'block', marginBottom: 4 }}>Para qué se usa</span>
+                {use}
+              </div>
+            </Card>
+          </motion.div>
+        ))}
+      </div>
+
+      <motion.div custom={.55} variants={fadeUp} initial="hidden" animate="show" style={{ textAlign: 'center' }}>
+        <div style={{
+          display: 'inline-block', padding: '14px 30px', borderRadius: 99,
+          background: `${T.teal}10`, border: `1px solid ${T.teal}35`,
+          color: T.text, fontFamily: T.B, fontSize: 16,
+        }}>
+          Bitcoin es la <strong style={{ color: T.orange }}>puerta de entrada</strong>. Ethereum es el <strong style={{ color: T.teal }}>terreno</strong>. Las stablecoins son el <strong style={{ color: T.green }}>puente con el mundo real</strong>.
+        </div>
+      </motion.div>
+    </Slide>
+  )
+}
+
 // ─── SLIDE 7: CÓMO FUNCIONAN ──────────────────────────────────
 function SlideHowItWorks() {
   const steps = [
@@ -1193,14 +1287,14 @@ function SlideWalletTypes() {
     },
     {
       icon: <KeyRound size={34} color={T.gold} strokeWidth={1.5} />,
-      name: 'MetaMask',
+      name: 'Bitget Wallet',
       type: 'Self-custodial',
       typeColor: T.gold,
-      what: <><span style={{ color: T.green, fontWeight: 700 }}>✓ CRIPTO</span> — ETH y tokens EVM</>,
+      what: <><span style={{ color: T.green, fontWeight: 700 }}>✓ CRIPTO</span> — BTC, ETH, Solana, BNB y +100 redes</>,
       whatColor: T.text,
       keys: 'VOS — mediante la seed phrase de 12 palabras',
       keysColor: T.gold,
-      net: 'Blockchain directa, sin intermediarios',
+      net: 'Multi-chain directo, sin intermediarios',
       footer: 'Máximo control. Requiere conocimiento técnico y responsabilidad para cuidar la seed.',
       border: `${T.gold}40`,
       bg: `${T.gold}08`,
@@ -1862,6 +1956,7 @@ const SLIDES = [
   { C: SlideBitget,        title: 'Bitget' },
   { C: SlideCrypto,        title: 'Criptomonedas' },
   { C: SlideBitcoin,       title: 'Bitcoin' },
+  { C: SlideCryptoVariety, title: 'Variedad de criptos' },
   { C: SlideHowItWorks,    title: 'Blockchain' },
   { C: SlideValue,         title: 'El Valor' },
   { C: SlideNotScam,       title: 'No son Estafa' },

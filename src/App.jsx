@@ -644,7 +644,7 @@ function SlideSaltaDev() {
 function SlideBitget() {
   const stats = [
     { v: '150M+', l: 'Usuarios' }, { v: '100+', l: 'Países' },
-    { v: 'Top 1', l: 'Exchange' }, { v: '$400M', l: 'Fondo protección' },
+    { v: 'Top 1', l: 'Exchange Universal' }, { v: '$400M', l: 'Fondo protección' },
   ]
   const prods = [
     { Icon: TrendingUp,    t: 'Spot Trading',  d: 'Compra y venta al instante' },
